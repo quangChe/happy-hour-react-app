@@ -4,14 +4,20 @@ import colors from '../styles/colors';
 import yelp from '../utils/apis';
 
 class Test extends React.Component{
+  state = {
+    data: [],
+  }
 
-  async componentDidMount() {
-    const data = await yelp.get();
-    console.log(data);
+  async componentWillMount() {
+    const businesses = await yelp.get();
+    this.setState({data: this.state.data.concat(businesses)})
   }
 
   render() {
+    const {data} = this.state;
     return (
+      <>
+      {/* TODO: Refactor to NavbarComponent */}
       <div 
         id="container"
         style={{background: colors.beige, color: colors.black}}
@@ -25,6 +31,18 @@ class Test extends React.Component{
         </svg>
         <h1 className="title">SixtySips</h1>
       </div>
+
+      {/* TODO: Refactor to BusinessCard Component */}
+      <div>
+        {
+          data.map(business => 
+            <div key={business.id} style={{backgroundImage: `url(${business.image_url})`}} className="business-card">
+              {/* <img src={business.image_url} alt="Business"/> */}
+            </div>
+          )
+        }
+      </div>
+      </>
     )
   }
 }
