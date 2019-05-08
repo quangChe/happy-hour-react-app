@@ -1,5 +1,5 @@
 import React from 'react';
-import './TestComponent.scss'
+import './HomeScreen.scss';
 import colors from '../styles/colors';
 import yelp from '../utils/apis';
 
@@ -9,18 +9,24 @@ class Test extends React.Component{
   }
 
   async componentWillMount() {
-    const businesses = await yelp.get();
-    this.setState({data: this.state.data.concat(businesses)})
+    try {
+      const businesses = await yelp.getFeed();
+      console.log(businesses);
+      this.setState({data: businesses})
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {
     const {data} = this.state;
+    const height = window.innerHeight;
     return (
       <>
       {/* TODO: Refactor to NavbarComponent */}
       <div 
         id="container"
-        style={{background: colors.beige, color: colors.black}}
+        style={{color: colors.black}}
         onClick={() => console.log('Hello')}>
         <svg className="logo" xmlns="http://www.w3.org/2000/svg" id="svgid7" width="32" height="32" x="0" y="0"  version="1.1" viewBox="0 0 32 32">
           <path fill="rgb(236, 123, 0)" d="M24.5 13.5c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z" coriginal="rgb(164, 255, 190, 1)" colortype="4" awdzp="4" colorover="rgb(236, 123, 0)"/>
@@ -34,10 +40,12 @@ class Test extends React.Component{
 
       {/* TODO: Refactor to BusinessCard Component */}
       <div>
-        {
+        { 
           data.map(business => 
-            <div key={business.id} style={{backgroundImage: `url(${business.image_url})`}} className="business-card">
-              {/* <img src={business.image_url} alt="Business"/> */}
+            <div key={business.id} style={{height, backgroundImage: `url(${business.image_url})`}} className="business-card">
+              <div className="card-overlay">
+                <h1>{business.name}</h1>
+              </div>
             </div>
           )
         }
