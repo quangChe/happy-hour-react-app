@@ -1,25 +1,11 @@
 import React from 'react';
 import './HomeScreen.scss';
 import colors from '../styles/colors';
-import yelp from '../utils/apis';
+import { connect } from 'react-redux';
 
-class Test extends React.Component{
-  state = {
-    data: [],
-  }
-
-  async componentWillMount() {
-    try {
-      const businesses = await yelp.getFeed();
-      console.log(businesses);
-      this.setState({data: businesses})
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
+class Home extends React.Component {
   render() {
-    const {data} = this.state;
+    console.log(this.props);
     const height = window.innerHeight;
     return (
       <>
@@ -40,20 +26,26 @@ class Test extends React.Component{
 
       {/* TODO: Refactor to BusinessCard Component */}
       <div>
-        { 
-          data.map(business => 
-            <div key={business.id} style={{height, backgroundImage: `url(${business.image_url})`}} className="business-card">
-              <div className="card-overlay">
-                <h1>{business.name}</h1>
-              </div>
-            </div>
+        {/* { data && (
+            data.map(business => {
+              return (
+                <div key={business.id} style={{height, backgroundImage: `url(${business.image_url})`}} className="business-card">
+                  <div className="card-overlay">
+                    <h1>{business.name}</h1>
+                  </div>
+                </div>
+              )
+            })
           )
-        }
+        } */}
       </div>
       </>
     )
   }
 }
 
+const mapStateToProps = (state) => {
+  return state;
+}
 
-export default Test;
+export default connect(mapStateToProps)(Home);
