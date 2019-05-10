@@ -1,10 +1,16 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
-const fetchNearest = () => {
-  return ['hello', 'hi', 'bye'];
+const nearest =  ['hello', 'hi', 'bye'];
+
+const nearbyBusinessesReducer = (nearestBusinesses = nearest, action) => {
+  if (action.type === 'CREATE_BUSINESS') {
+    return [...nearestBusinesses, action.payload.businessName];
+  }
+
+  return nearestBusinesses;
 }
 
 export default combineReducers({
-  nearestBusinesses: fetchNearest
+  nearestBusinesses: nearbyBusinessesReducer
 })
 
