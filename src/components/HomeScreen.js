@@ -18,9 +18,9 @@ class Home extends React.Component {
 
       /* TODO: Refactor to BusinessCard Component */
       <div> 
-        { this.props.nearestBusinesses.map(business => <h1>{business}</h1>)}
+        { this.props.nearestBusinesses.map(business => <h1 key={business}>{business}</h1>)}
         <button style={testBtn} 
-        onClick={() => this.props.dispatch(createBusiness('foo'))}>
+        onClick={() => this.props.createBusiness('foo')}>
           Create Business
         </button>
       </div>
@@ -44,4 +44,4 @@ const mapStateToProps = (state) => {
   return state;
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, {createBusiness})(Home);
