@@ -1,12 +1,15 @@
 import React from 'react';
-import HomeScreen from './components/HomeScreen';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './store/reducers';
 
+import Navbar from './components/NavbarComponent';
+import HomeScreen from './components/HomeScreen';
+
 function App() {
   return (
     <Provider store={createStore(reducers)}>
+      <Navbar/>
       <HomeScreen/> 
     </Provider>
   )
