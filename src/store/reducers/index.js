@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 
-const nearest =  ['hello', 'hi', 'bye'];
-
-const nearbyBusinessesReducer = (nearestBusinesses = nearest, action) => {
-  if (action.type === 'CREATE_BUSINESS') {
-    return [...nearestBusinesses, action.payload.businessName];
-  }
+const nearbyBusinessesReducer = (nearestBusinesses = [], action) => {
+  if (action.type === 'FETCH_BUSINESSES') {
+    return action.payload;
+  } 
+  // else if (action.type === 'CREATE_BUSINESS') {
+  //   return [...nearestBusinesses, action.payload.businessName];
+  // }
 
   return nearestBusinesses;
 }

@@ -1,12 +1,16 @@
 import React from 'react';
 import './HomeScreen.scss';
 import { connect } from 'react-redux';
-import { createBusiness } from '../store/actions';
+import { fetchBusinesses } from '../store/actions';
 
 class Home extends React.Component {
+  componentDidMount() {
+    this.props.fetchBusinesses();
+  }
+
   render() {
     console.log(this.props);
-    const height = window.innerHeight;
+    // const height = window.innerHeight;
 
     const testBtn = {
       height: '50px',
@@ -18,7 +22,7 @@ class Home extends React.Component {
 
       /* TODO: Refactor to BusinessCard Component */
       <div> 
-        { this.props.nearestBusinesses.map(business => <h1 key={business}>{business}</h1>)}
+        {/* { this.props.nearestBusinesses.map(business => <h1 key={business}>{business}</h1>)} */}
         <button style={testBtn} 
         onClick={() => this.props.createBusiness('foo')}>
           Create Business
@@ -44,4 +48,4 @@ const mapStateToProps = (state) => {
   return state;
 }
 
-export default connect(mapStateToProps, {createBusiness})(Home);
+export default connect(mapStateToProps, {fetchBusinesses})(Home);
