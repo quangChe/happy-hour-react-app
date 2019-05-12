@@ -9,37 +9,20 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-    // const height = window.innerHeight;
-
-    const testBtn = {
-      height: '50px',
-      width: '100px',
-      background: 'green',
-    };
+    const height = window.innerHeight - 60;
+    const { nearestBusinesses } = this.props;
 
     return (
-
-      /* TODO: Refactor to BusinessCard Component */
-      <div> 
-        {/* { this.props.nearestBusinesses.map(business => <h1 key={business}>{business}</h1>)} */}
-        <button style={testBtn} 
-        onClick={() => this.props.createBusiness('foo')}>
-          Create Business
-        </button>
+      <div className="container" style={{height}}>
+        { nearestBusinesses.map(business => 
+            <div key={business.id} style={{backgroundImage: `url(${business.image_url})`}} className="business-card">
+              <div onClick={() => console.log(business)} className="card-overlay">
+                <h1>{business.name}</h1>
+              </div>
+            </div>
+          )   
+        }
       </div>
-        /* { data && (
-            data.map(business => {
-              return (
-                <div key={business.id} style={{height, backgroundImage: `url(${business.image_url})`}} className="business-card">
-                  <div className="card-overlay">
-                    <h1>{business.name}</h1>
-                  </div>
-                </div>
-              )
-            })
-          )
-        } */
     )
   }
 }
