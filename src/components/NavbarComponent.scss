@@ -2,6 +2,7 @@
 
 #container {
   position: fixed;
+  z-index: 10;
   width: 100%;
   padding: 5px 0;
   background: linear-gradient(to left, #dad3b8, #e8e1c6, #f0eed3);
