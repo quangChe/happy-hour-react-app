@@ -16,6 +16,7 @@ const Yelp = {
       return request.data;
     } catch (err) {
       console.log(err);
+      return [];
     }
   },
 }
