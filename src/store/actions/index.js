@@ -1,13 +1,11 @@
 import api from '../../utils/apis';
-
-export const createBusiness = (businessName) => {
-  return {
-    type: 'CREATE_BUSINESS',
-    payload: {businessName}
-  }
+ 
+export const fetchNearby = () => async dispatch => {
+  const response = await api.searchNearby();
+  return dispatch({ type: 'FETCH_NEARBY', payload: response})
 }
 
-export const fetchBusinesses = () => async dispatch => {
-  const response = await api.getFeed();
-  return dispatch({ type: 'FETCH_BUSINESSES', payload: response})
+export const fetchById = (id) => async dispatch => {
+  const response = await api.searchId(id);
+  return dispatch( {type: 'SELECT_BUSINESS', payload: response})
 }
