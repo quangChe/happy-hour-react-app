@@ -9,5 +9,5 @@ export const createBusiness = (businessName) => {
 
 export const fetchBusinesses = () => async dispatch => {
   const response = await api.getFeed();
-  dispatch({ type: 'FETCH_BUSINESSES', payload: response})
+  return dispatch({ type: 'FETCH_BUSINESSES', payload: response})
 }
