@@ -7,5 +7,5 @@ export const fetchNearby = () => async dispatch => {
 
 export const fetchById = (id) => async dispatch => {
   const response = await api.searchId(id);
-  return dispatch( {type: 'SELECT_BUSINESS', payload: response})
+  return dispatch( {type: 'ID_BUSINESS', payload: response})
 }
