@@ -1,23 +1,29 @@
 import React from 'react';
 import './HomeScreen.scss';
 import { connect } from 'react-redux';
-import { fetchBusinesses } from '../store/actions';
+import { fetchNearby } from '../store/actions';
+
+import api from '../utils/apis';
 
 class Home extends React.Component {
-  componentDidMount() {
-    this.props.fetchBusinesses();
+  async componentDidMount() {
+    this.props.fetchNearby();
+
+    const test = await api.searchId('tTafiXZvcXziFjpu4zxO7Q');
+    console.log('****', test);
   }
 
   render() {
     const width = window.innerWidth;
-    const { nearestBusinesses } = this.props;
+    const { nearbyBusinesses } = this.props;
+
 
     return (
       
       // TODO: Refactor this to a separate component
       <div className="container">
         <h1>Nearby</h1>
-        { nearestBusinesses.map(business => 
+        { nearbyBusinesses.map(business => 
             <div key={business.id} style={{width, backgroundImage: `url(${business.image_url})`}} className="business-card">
               <div onClick={() => console.log(business)} className="card-overlay">
                 <h2>{business.name}</h2>
@@ -34,4 +40,4 @@ const mapStateToProps = (state) => {
   return state;
 }
 
-export default connect(mapStateToProps, {fetchBusinesses})(Home);
+export default connect(mapStateToProps, {fetchNearby})(Home);
