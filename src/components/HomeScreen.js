@@ -9,15 +9,18 @@ class Home extends React.Component {
   }
 
   render() {
-    const height = window.innerHeight - 60;
+    const width = window.innerWidth;
     const { nearestBusinesses } = this.props;
 
     return (
-      <div className="container" style={{height}}>
+      
+      // TODO: Refactor this to a separate component
+      <div className="container">
+        <h1>Nearby</h1>
         { nearestBusinesses.map(business => 
-            <div key={business.id} style={{backgroundImage: `url(${business.image_url})`}} className="business-card">
+            <div key={business.id} style={{width, backgroundImage: `url(${business.image_url})`}} className="business-card">
               <div onClick={() => console.log(business)} className="card-overlay">
-                <h1>{business.name}</h1>
+                <h2>{business.name}</h2>
               </div>
             </div>
           )   
