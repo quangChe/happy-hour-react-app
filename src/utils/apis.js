@@ -1,5 +1,5 @@
 import axios from 'axios';
-const ApiUrl = 'http://localhost:9000';
+const API = axios.create({baseURL: 'http://localhost:9000/api'});
 
 const getCurrentLocation = () => new Promise(async resolve => {
   const cb = (pos) => resolve(pos.coords);
@@ -8,17 +8,27 @@ const getCurrentLocation = () => new Promise(async resolve => {
 })
 
 const Yelp = {
-  getFeed: async () => {
+  searchNearby: async () => {
     try {
       const {latitude, longitude} = await getCurrentLocation();
-      const search = encodeURIComponent(`term=happy+hour&longitude=${longitude}&latitude=${latitude}`);
-      const request = await axios.get(`${ApiUrl}/list/businesses?search=${search}`)
+      const q = `term=happy+hour&longitude=${longitude}&latitude=${latitude}&limit=50`;
+      const params = {q};
+      const request = await API.get(`/businesses/search`, {params});
       return request.data;
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return [];
     }
   },
+  searchId: async (id) => {
+    try {
+      const request = await API.get('/businesses/' + id);
+      return request.data;
+    } catch (err) {
+      console.error(err);
+      return null
+    }
+  }
 }
 
 export default Yelp;
