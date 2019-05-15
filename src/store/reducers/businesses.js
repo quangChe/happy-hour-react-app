@@ -7,7 +7,7 @@ export const nearbyBusinesses = (nearbyBusinesses = [], action) => {
   }
 }
 
-export const retrieveBusiness = (id = null, action) => {
+export const idBusiness = (id = null, action) => {
   switch (action.type) {
     case 'ID_BUSINESS': 
       return action.payload;

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import { 
   nearbyBusinesses,
-  retrieveBusiness
+  idBusiness
 } from './businesses';
 
 export default combineReducers({
   nearbyBusinesses: nearbyBusinesses,
-  currentlyViewing: retrieveBusiness
+  currentlyViewing: idBusiness
 })
 
