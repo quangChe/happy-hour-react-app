@@ -11,7 +11,7 @@ const Yelp = {
   searchNearby: async () => {
     try {
       const {latitude, longitude} = await getCurrentLocation();
-      const q = `term=happy+hour&longitude=${longitude}&latitude=${latitude}&limit=50`;
+      const q = `term=happy+hour&longitude=${longitude}&latitude=${latitude}&limit=20`;
       const params = {q};
       const request = await API.get(`/businesses/search`, {params});
       return request.data;
