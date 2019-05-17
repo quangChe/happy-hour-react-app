@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import StoreProvider from './store';
+import { Provider } from 'react-redux';
+import { Store } from './store';
 
-const HappyHourApp = () => (
-  <StoreProvider>
+const HappyHourApp = (
+  <Provider store={Store}>
     <App/>
-  </StoreProvider>
-) 
+  </Provider>
+);
 
-ReactDOM.render(<HappyHourApp/>, document.getElementById('root'));
+ReactDOM.render(HappyHourApp, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
