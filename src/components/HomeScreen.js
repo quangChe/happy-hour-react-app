@@ -2,7 +2,9 @@ import React from 'react';
 import './HomeScreen.scss';
 import { connect } from 'react-redux';
 import { fetchNearby } from '../store/actions';
+
 import VenuesCarousel from './VenuesCarousel';
+import Navbar from './NavbarComponent';
 
 class Home extends React.Component {
   componentDidMount() {
@@ -14,7 +16,10 @@ class Home extends React.Component {
     const randomNumber = Math.round(Math.random() * 1000000);
 
     return (
-      <VenuesCarousel id={randomNumber} venues={nearbyBusinesses}/>
+      <div className="homescreen">
+        <Navbar/>
+        <VenuesCarousel id={randomNumber} venues={nearbyBusinesses}/>
+      </div>
     )
   }
 }
