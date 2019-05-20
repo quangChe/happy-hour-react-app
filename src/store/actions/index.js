@@ -1,8 +1,9 @@
 import api from '../../utils/apis';
- 
+
 export const fetchNearby = () => async dispatch => {
   const response = await api.searchNearby();
-  return dispatch({ type: 'FETCH_NEARBY', payload: response})
+  dispatch({ type: 'FETCH_NEARBY', payload: response});
+  dispatch({ type: 'DATA_AVAILABLE', payload: false});
 }
 
 export const fetchById = (id) => async dispatch => {
