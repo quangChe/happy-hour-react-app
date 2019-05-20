@@ -1,10 +1,9 @@
 import React from 'react';
-import './HomeScreen.scss';
 import { connect } from 'react-redux';
 import { fetchNearby } from '../store/actions';
 
 import VenuesCarousel from './VenuesCarousel';
-import Navbar from './NavbarComponent';
+import LoadingSpinner from './LoadingSpinner';
 
 class HomeScreen extends React.Component {
   componentDidMount() {
@@ -12,15 +11,23 @@ class HomeScreen extends React.Component {
   }
 
   render() {
-    const { nearbyBusinesses } = this.props;
+    const { nearbyBusinesses, appLoading } = this.props;
+    const height = window.innerHeight;
     const randomNumber = Math.round(Math.random() * 1000000);
-
-    return (
-      <div className="homescreen">
-        <Navbar/>
+    
+    const loadingView = (
+      <div style={{height}}>
+        <LoadingSpinner/>
+      </div>
+    );
+    
+    const completeView = (
+      <div style={{height}}>
         <VenuesCarousel id={randomNumber} venues={nearbyBusinesses}/>
       </div>
-    )
+    );
+
+    return appLoading ? loadingView : completeView;
   }
 }
 
