@@ -6,7 +6,7 @@ import { fetchNearby } from '../store/actions';
 import VenuesCarousel from './VenuesCarousel';
 import Navbar from './NavbarComponent';
 
-class Home extends React.Component {
+class HomeScreen extends React.Component {
   componentDidMount() {
     this.props.fetchNearby();
   }
@@ -28,4 +28,4 @@ const mapStateToProps = (state) => {
   return state;
 }
 
-export default connect(mapStateToProps, {fetchNearby})(Home);
+export default connect(mapStateToProps, {fetchNearby})(HomeScreen);
