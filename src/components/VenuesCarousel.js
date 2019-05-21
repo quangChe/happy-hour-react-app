@@ -6,6 +6,7 @@ export default class VenuesCarousel extends React.Component {
 
   state = {
     width: window.innerWidth,
+    scrollPosition: 0,
   }
 
   updateDimensions = () => {
@@ -16,12 +17,25 @@ export default class VenuesCarousel extends React.Component {
     return carousel.scrollTo(0, 0);
   }
 
+  autoScroll = () => {
+    const carousel = this.refs[this.props.id];
+    const { width, scrollPosition} = this.state;
+    if (scrollPosition < carousel.scrollWidth) {
+      this.setState({scrollPosition: scrollPosition + width})
+      return carousel.scrollBy(width/3, 0);  
+    }
+    this.setState({scrollPosition: 0});
+    return carousel.scrollTo(0, 0);
+  }
+
   componentDidMount() {
     window.addEventListener('resize', this.updateDimensions);
+    this.AUTO_SCROLLING = window.setInterval(this.autoScroll, 5000);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions);
+    clearInterval(this.AUTO_SCROLLING);
   }
 
   render() {

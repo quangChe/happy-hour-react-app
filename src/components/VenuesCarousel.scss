@@ -11,6 +11,7 @@
     overflow-y: hidden;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
 
     .status {
       position: absolute;
