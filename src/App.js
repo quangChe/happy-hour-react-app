@@ -2,7 +2,7 @@ import React from 'react';
 import HomeScreen from './components/HomeScreen';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Navbar from './components/NavbarComponent';
+import Navbar from './components/Navbar';
 
 const TestPath = () => <div>Hello?</div>
 const Error = () => <div>404!!</div>
