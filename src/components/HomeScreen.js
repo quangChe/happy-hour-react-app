@@ -1,14 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchNearby } from '../store/actions';
 
 import VenuesCarousel from './VenuesCarousel';
 import LoadingSpinner from './LoadingSpinner';
 
 class HomeScreen extends React.Component {
-  componentDidMount() {
-    this.props.fetchNearby();
-  }
 
   render() {
     const { nearbyBusinesses, appLoading } = this.props;
@@ -35,4 +31,4 @@ const mapStateToProps = (state) => {
   return state;
 }
 
-export default connect(mapStateToProps, {fetchNearby})(HomeScreen);
+export default connect(mapStateToProps)(HomeScreen);

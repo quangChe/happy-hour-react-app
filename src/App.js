@@ -1,23 +1,30 @@
 import React from 'react';
+import { fetchNearby } from './store/actions';
+import { connect } from 'react-redux';
 import HomeScreen from './components/HomeScreen';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 
-const TestPath = () => <div>Hello?</div>
-const Error = () => <div>404!!</div>
 
-function App() {
-  return (
-    <Router>
-      <Navbar/>
-      <Switch>
-        <Route path="/" exact component={HomeScreen}/>
-        <Route path="/test" component={TestPath}/>
-        <Route component={Error}/>
-      </Switch>
-    </Router>
-  )
+const Error = () => <div>404</div>
+
+class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchNearby();
+  }
+
+  render() {
+    return (
+      <Router>
+        <Navbar/>
+        <Switch>
+          <Route path="/" exact component={HomeScreen}/>
+          <Route component={Error}/>
+        </Switch>
+      </Router>
+    )
+  }
 }
 
-export default App;
+export default connect(null, {fetchNearby})(App);
