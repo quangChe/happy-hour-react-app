@@ -30,7 +30,7 @@ export default class VenuesCarousel extends React.Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.updateDimensions);
-    this.AUTO_SCROLLING = window.setInterval(this.autoScroll, 5000);
+    this.AUTO_SCROLLING = window.setInterval(this.autoScroll, 8000);
   }
 
   componentWillUnmount() {
