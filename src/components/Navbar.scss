@@ -11,5 +11,9 @@
   box-sizing: border-box;
   height: 60px;
   top: 30px;
+
+  @media only screen and (max-width: 400px) {
+    padding: 20px;
+  }
 }
 
