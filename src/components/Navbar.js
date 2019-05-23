@@ -21,17 +21,11 @@ class Navbar extends React.Component {
     const { loading } = this.props;
     const { menuOpen } = this.state;
 
-    const menuStyles = {
-      opacity: menuOpen ? 1 : 0,
-      transition: 'opacity 1s ease-in-out',
-    }
-
-
     return loading
       ? null
       : (
         <div id="navigation-container">
-          { menuOpen && <div className="nav-menu" style={{menuStyles}}></div> }
+          <div className={['nav-menu', !menuOpen && 'nav-menu-close'].join(' ')}></div>
           <div className="navbar" style={{color: colors.black}}>
             <Link to="/" style={{textDecoration: 'none'}}>
               <Logo/>
