@@ -1,13 +1,13 @@
 import React from 'react';
-import colors from '../styles/colors';
-import './Navbar.scss';
+import colors from '../../styles/colors';
+import './NavBar.scss';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import NavButton from './NavButton';
-import Logo from './Logo';
+import NavButton from './NavButton/NavButton';
+import Logo from '../Utils/Logo';
 
-class Navbar extends React.Component {
+class NavBar extends React.Component {
 
   state = {
     menuOpen: false,
@@ -46,4 +46,4 @@ const mapStateToProps = ({appLoading}) => {
   return {loading: appLoading};
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps)(NavBar);

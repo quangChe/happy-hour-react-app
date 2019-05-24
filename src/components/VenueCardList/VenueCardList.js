@@ -1,9 +1,8 @@
 import React from 'react';
-import './VenuesCarousel.scss';
-import VenueCard from './VenueCard';
+import './VenueCardList.scss';
+import VenueCard from './VenueCard/VenueCard';
 
-export default class VenuesCarousel extends React.Component {
-
+export default class VenueCardList extends React.Component {
   state = {
     width: window.innerWidth,
     scrollPosition: 0,

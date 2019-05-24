@@ -1,7 +1,7 @@
 import React from 'react';
 import './NavButton.scss';
 
-class NavButton extends React.Component {
+export default class NavButton extends React.Component {
   state = {
     open: this.props.open ? this.props.open : false,
   };
@@ -51,5 +51,3 @@ class NavButton extends React.Component {
     )
   }
 }
-
-export default NavButton;

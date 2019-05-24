@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import VenuesCarousel from './VenuesCarousel';
-import LoadingSpinner from './LoadingSpinner';
+import VenueCardList from '../VenueCardList/VenueCardList';
+import LoadingSpinner from '../Utils/LoadingSpinner';
 
 class HomeScreen extends React.Component {
 
@@ -19,7 +19,7 @@ class HomeScreen extends React.Component {
     
     const completeView = (
       <div style={{height}}>
-        <VenuesCarousel id={randomNumber} venues={nearbyBusinesses}/>
+        <VenueCardList id={randomNumber} venues={nearbyBusinesses}/>
       </div>
     );
 

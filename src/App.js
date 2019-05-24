@@ -1,10 +1,9 @@
 import React from 'react';
 import { fetchNearby } from './store/actions';
 import { connect } from 'react-redux';
-import HomeScreen from './components/HomeScreen';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-
-import Navbar from './components/Navbar';
+import HomeScreen from './components/HomeScreen/HomeScreen';
+import NavBar from './components/NavBar/NavBar';
 
 
 const Error = () => <div>404</div>
@@ -17,7 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Navbar/>
+        <NavBar/>
         <Switch>
           <Route path="/" exact component={HomeScreen}/>
           <Route component={Error}/>

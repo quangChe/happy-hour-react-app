@@ -1,7 +1,7 @@
 import React from 'react';
 import './VenueCard.scss';
 
-class VenueCard extends React.Component {
+export default class VenueCard extends React.Component {
   
   render() {
     const { handleClick, venue, width } = this.props;
@@ -20,5 +20,3 @@ class VenueCard extends React.Component {
     )
   }
 }
-
-export default VenueCard;
