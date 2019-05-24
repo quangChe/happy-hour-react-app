@@ -16,8 +16,19 @@ describe('<NavBar />', () => {
     const wrapper = shallow(LoadingNavBar);
     expect(wrapper.find(NavSlider)).toHaveLength(0);
   });
+
   it('should render <NavSlider /> if loading state is false', () => {
     const wrapper = shallow(LoadedNavBar);
     expect(wrapper.find(NavSlider)).toHaveLength(0);
+  });
+
+  it('should render no <NavButton /> if loading state is true', () => {
+    const wrapper = shallow(LoadingNavBar);
+    expect(wrapper.find(NavButton)).toHaveLength(0);
+  });
+
+  it('should render <NavButton /> if loading state is false', () => {
+    const wrapper = shallow(LoadedNavBar);
+    expect(wrapper.find(NavButton)).toHaveLength(0);
   });
 })
