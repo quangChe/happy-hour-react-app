@@ -1,24 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
-
 #navigation-container {
   height: 100%;
   width: 100%;
   position: absolute;
-
-  .nav-menu {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #333333;
-    transition: all 0.25s ease-in;
-    transform: translateY(0);
-    z-index: 10;
-  }
-
-  .nav-menu-close {
-    transition: all 0.25s ease-out;
-    transform: translateY(100%);
-  }
 
   .navbar {
     position: absolute;
@@ -26,14 +9,14 @@
     justify-content: space-between;
     z-index: 10;
     width: 100%;
-    padding: 20px 50px;
+    padding: 20px;
     background: rgba(0, 0, 0, 0);
     box-sizing: border-box;
     height: 60px;
     top: 30px;
   
-    @media only screen and (max-width: 400px) {
-      padding: 20px;
+    @media only screen and (min-width: 400px) {
+      padding: 20px 50px;
     }
   }
 }

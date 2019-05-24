@@ -4,8 +4,9 @@ import './NavBar.scss';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import NavButton from './NavButton/NavButton';
 import Logo from '../Utils/Logo';
+import NavButton from './NavButton/NavButton';
+import NavSlider from './NavSlider/NavSlider';
 
 class NavBar extends React.Component {
 
@@ -32,7 +33,7 @@ class NavBar extends React.Component {
       ? null
       : (
         <div id="navigation-container">
-          <div className={['nav-menu', !menuOpen && 'nav-menu-close'].join(' ')}></div>
+          <NavSlider opened={menuOpen}/>
           <div className="navbar" style={{color: colors.black}}>
             {this.renderLogo()}
             <NavButton onClick={this.openNavMenu} open={false}/>
