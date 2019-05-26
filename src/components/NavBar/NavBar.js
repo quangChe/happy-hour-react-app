@@ -8,7 +8,7 @@ import Logo from '../Utils/Logo';
 import NavButton from './NavButton/NavButton';
 import NavSlider from './NavSlider/NavSlider';
 
-class NavBar extends React.Component {
+export class NavBar extends React.Component {
 
   state = {
     menuOpen: false,
