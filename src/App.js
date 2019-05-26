@@ -6,7 +6,15 @@ import HomeScreen from './components/HomeScreen/HomeScreen';
 import NavBar from './components/NavBar/NavBar';
 
 
-const Error = () => <div>404</div>
+const Error = () => 
+  <div style={{
+    display: 'flex', 
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '3rem',
+    fontWeight: 700,
+    textAlign: 'center',
+    color: '#e6e6e6'}}>404<br/>Page Not Found</div>
 
 class App extends React.Component {
   componentDidMount() {
