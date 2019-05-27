@@ -38,14 +38,14 @@ export default class VenueCardList extends React.Component {
   }
 
   render() {
-    const { id, venues } = this.props;
+    const { id, venues, venueClick } = this.props;
     const { width } = this.state; 
 
     return (
       <div className="venues-container">
         <div ref={id} className="venues-scrollbox">
           { venues.map(venue =>
-              <VenueCard handleClick={(e) => console.log('****', e)} key={venue.id} venue={venue} width={width}/>
+              <VenueCard handleClick={venueClick} key={venue.id} venue={venue} width={width}/>
             )   
           }
         </div>
