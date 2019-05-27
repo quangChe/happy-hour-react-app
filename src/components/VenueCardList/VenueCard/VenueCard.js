@@ -13,8 +13,8 @@ export default class VenueCard extends React.Component {
     return (
       <div className="venue-card"
           style={cardStyle} >
-        <div onClick={() => handleClick(venue.id)} className="card-overlay">
-          <p className="name">{venue.name}</p>
+        <div className="card-overlay">
+          <p onClick={() => handleClick(venue.id)} className="name">{venue.name}</p>
         </div>
       </div>
     )
