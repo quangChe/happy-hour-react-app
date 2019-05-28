@@ -1,26 +1,31 @@
-export const loading = (appLoading = true, action) => {
-  switch (action.type) {
-    case 'DATA_AVAILABLE': 
-      return action.payload;
-    default: 
-      return appLoading;
+const INITIAL_STATE = {
+  nearbyBusinesses: {
+    data: [],
+    loading: true,
+  },
+  viewingBusiness: {}
+}
+
+const fetchNearby = (state, action) => {
+  return {
+    ...state,
+    nearbyBusinesses: { data: action.payload, loading: false },
   }
 }
 
-export const nearbyBusinesses = (nearbyBusinesses = [], action) => {
-  switch (action.type) {
-    case 'FETCH_NEARBY':
-      return action.payload;
-    default: 
-      return nearbyBusinesses;
+const idBusiness = (state, action) => {
+  const selectedBusiness = {
+    ...state.viewingBusiness, ...action.payload
+  };
+  return {
+    ...state, viewingBusiness: selectedBusiness,
   }
 }
 
-export const idBusiness = (id = null, action) => {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'ID_BUSINESS': 
-      return action.payload;
-    default: 
-      return id;
+    case 'FETCH_NEARBY': return fetchNearby(state, action);
+    case 'ID_BUSINESS': return idBusiness(state, action);
+    default: return state;
   }
 }
