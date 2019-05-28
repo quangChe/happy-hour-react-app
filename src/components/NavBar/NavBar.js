@@ -43,8 +43,8 @@ export class NavBar extends React.Component {
   }
 }
 
-const mapStateToProps = ({appLoading}) => {
-  return {loading: appLoading};
+const mapStateToProps = ({businesses: {nearbyBusinesses}}) => {
+  return {loading: nearbyBusinesses.loading};
 }
 
 export default connect(mapStateToProps)(NavBar);
