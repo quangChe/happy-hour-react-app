@@ -14,7 +14,7 @@ class HomeScreen extends React.Component {
   }
 
   render() {
-    const { nearbyBusinesses, appLoading } = this.props;
+    const { nearbyBusinesses } = this.props.businesses;
     const height = window.innerHeight;
     const randomNumber = Math.round(Math.random() * 1000000);
     
@@ -26,11 +26,11 @@ class HomeScreen extends React.Component {
     
     const completeView = (
       <div style={{height}}>
-        <VenueCardList id={randomNumber} venues={nearbyBusinesses} venueClick={this.searchVenue}/>
+        <VenueCardList id={randomNumber} venues={nearbyBusinesses.data} venueClick={this.searchVenue}/>
       </div>
     );
 
-    return appLoading ? loadingView : completeView;
+    return nearbyBusinesses.loading ? loadingView : completeView;
   }
 }
 
