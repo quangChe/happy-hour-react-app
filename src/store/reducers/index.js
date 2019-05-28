@@ -1,13 +1,7 @@
 import { combineReducers } from 'redux';
-import { 
-  nearbyBusinesses,
-  idBusiness,
-  loading,
-} from './businesses';
+import businesses from './businesses';
 
 export default combineReducers({
-  appLoading: loading,
-  nearbyBusinesses: nearbyBusinesses,
-  currentlyViewing: idBusiness
+  businesses: businesses,
 })
 
