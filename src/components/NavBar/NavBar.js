@@ -15,6 +15,7 @@ export class NavBar extends React.Component {
   }
 
   openNavMenu = (open) => {
+    console.log(open);
     this.setState({menuOpen: open})
   }
 
@@ -36,7 +37,7 @@ export class NavBar extends React.Component {
           <NavSlider opened={menuOpen}/>
           <div className="navbar" style={{color: colors.black}}>
             {this.renderLogo()}
-            <NavButton onClick={this.openNavMenu} open={false}/>
+              <NavButton onClick={(e) => this.openNavMenu(e)} open={false}/>
           </div>
         </div>
       );
