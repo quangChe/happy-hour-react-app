@@ -1,10 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow, mount } from 'enzyme';
 import App from './App';
 import Provider from './store/Provider';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Provider><App/></Provider>, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('<App />', () => {
+  const app = shallow(<Provider><App /></Provider>);
+
+  it('renders without crashing', () => {
+    expect(app).toMatchSnapshot();
+  });
+
+  describe('on startup', () => {
+    const mounted = mount(<Provider><App /></Provider>);
+    it('renders Router', () => {
+      expect(mounted.find('Router').exists()).toBe(true);
+    });
+  
+    it('renders Navbar', () => {
+      expect(mounted.find('NavBar').exists()).toBe(true);
+    });
+  
+    it('renders the Home screen', () => {
+      expect(mounted.find('HomeScreen').exists()).toBe(true);
+    });
+
+  });
+  
 });

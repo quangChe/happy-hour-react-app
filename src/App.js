@@ -2,19 +2,10 @@ import React from 'react';
 import { fetchNearby } from './store/actions';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import HomeScreen from './components/HomeScreen/HomeScreen';
+import HomeScreen from './screens/HomeScreen/HomeScreen';
 import NavBar from './components/NavBar/NavBar';
+import ErrorScreen from './screens/ErrorScreen/ErrorScreen';
 
-
-const Error = () => 
-  <div style={{
-    display: 'flex', 
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '3rem',
-    fontWeight: 700,
-    textAlign: 'center',
-    color: '#e6e6e6'}}>404<br/>Page Not Found</div>
 
 class App extends React.Component {
   componentDidMount() {
@@ -27,7 +18,7 @@ class App extends React.Component {
         <NavBar/>
         <Switch>
           <Route path="/" exact component={HomeScreen}/>
-          <Route component={Error}/>
+          <Route component={ErrorScreen}/>
         </Switch>
       </Router>
     )
