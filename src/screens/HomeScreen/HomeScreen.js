@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import VenueCardList from '../VenueCardList/VenueCardList';
-import LoadingSpinner from '../Utils/LoadingSpinner';
+import VenueCardList from '../../components/VenueCardList/VenueCardList';
+import LoadingSpinner from '../../components/Utils/LoadingSpinner';
 
 import { fetchById } from '../../store/actions';
 
-class HomeScreen extends React.Component {
+export class HomeScreen extends React.Component {
 
   searchVenue = async (e) => {
     await this.props.fetchById(e);

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Homescreen renders without crashing 1`] = `
+<div
+  style={
+    Object {
+      "height": 768,
+    }
+  }
+>
+  <VenueCardList
+    id={459491}
+    venueClick={[Function]}
+    venues=""
+  />
+</div>
+`;
