@@ -1,11 +1,10 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 
 import VenueCardList from './VenueCardList';
+import VenueCard from './VenueCard/VenueCard';
 
 describe('<VenueCardList />', () => {
-
   const props = {
     id: '12345',
     venues: [
@@ -15,15 +14,13 @@ describe('<VenueCardList />', () => {
     ],
     venueClick: () => console.log('Hello World!')
   };
- 
-
-  let wrapper;
-
-  beforeEach(async () => {
-    wrapper = mount(<VenueCardList {...props} />);
+  const wrapper = shallow(<VenueCardList {...props} />);
+  
+  it('renders without crashing', () => {
+    expect(wrapper).toMatchSnapshot();
   })
 
-  it('Should render a <VenueCard /> for each item in venues prop', () => {
-    expect(wrapper.find('VenueCard')).toHaveLength(3);
+  it('Should render a VenueCard for each item in venues prop', () => {
+    expect(wrapper.find(VenueCard)).toHaveLength(props.venues.length);
   });
 })
