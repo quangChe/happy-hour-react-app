@@ -8,6 +8,10 @@ import NavButton from './NavButton/NavButton';
 describe('NavBar', () => {
   const wrapper = shallow(<NavBar  />);
 
+  it('renders correctly', () => {
+    expect(wrapper).toMatchSnapshot();    
+  })
+
   describe('while the app is still loading', () => {
     beforeEach(() => {
       wrapper.setProps({loading: true});    
