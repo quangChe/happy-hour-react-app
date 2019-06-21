@@ -10,10 +10,6 @@ describe('Homescreen', () => {
   };
   const screen = shallow(<HomeScreen {...props}/>);
 
-  it('renders without crashing', () => {
-    expect(screen).toMatchSnapshot();
-  });
-
   describe('when app is loading', () => {
     let loading;
 
