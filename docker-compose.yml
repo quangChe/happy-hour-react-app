@@ -10,7 +10,7 @@ services:
     volumes: 
       - /app/node_modules
       - .:/app
-  happy-hour-test: 
+  happy-hour-app-test: 
     build: 
       context: .
       dockerfile: Dockerfile.dev
