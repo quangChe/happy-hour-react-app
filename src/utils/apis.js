@@ -20,6 +20,20 @@ const Yelp = {
       return [];
     }
   },
+  searchByTerm: async (searchTerm, location = {latitude: null, longitude: null}) => {
+    try {
+      const search = searchTerm.split(" ").join("+");
+      const queryString = (location.latitude && location.longitude) ?
+        `term=happy+hour+${search}&longitude=${location.longitude}&latitude=${location.latitude}&limit=10`
+        : `term=happy+hour+${search}&limit=10`;
+      const params = { queryString };
+      const request = await API.get('/businesses/search', {params});
+      return request.data;
+    } catch (err) {
+      console.error(err);
+      return [];
+    }
+  },
   searchId: async (id) => {
     try {
       const request = await API.get('/businesses/' + id);
