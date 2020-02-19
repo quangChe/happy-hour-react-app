@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import VenueCardList from '../../components/VenueCardList/VenueCardList';
 import LoadingSpinner from '../../components/Utils/LoadingSpinner';
 
+@observer
 class Home extends React.Component {
 
   componentDidMount() {
@@ -15,7 +16,7 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props);
     // const { nearbyBusinesses } = this.props.businesses;
     const height = window.innerHeight;
     const randomNumber = Math.round(Math.random() * 1000000);
@@ -37,4 +38,4 @@ class Home extends React.Component {
   }
 }
 
-export default observer(Home);
+export default Home;

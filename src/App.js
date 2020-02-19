@@ -5,13 +5,14 @@ import Home from './pages/Home/Home';
 import NavBar from './components/NavBar/NavBar';
 import Error from './pages/Error/Error';
 
-
+@observer
 class App extends React.Component {
   componentDidMount() {
     this.props.businesses.fetchNearby();
   }
 
   render() {
+    console.log(this.props);
     return (
       <Home/>
       // <Router>
@@ -25,4 +26,4 @@ class App extends React.Component {
   }
 }
 
-export default observer(App);
+export default App;
