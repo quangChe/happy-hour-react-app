@@ -1,10 +1,8 @@
 import React from 'react';
-import { fetchNearby } from './store/actions';
-import { connect } from 'react-redux';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import HomeScreen from './screens/HomeScreen/HomeScreen';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './pages/Home/Home';
 import NavBar from './components/NavBar/NavBar';
-import ErrorScreen from './screens/ErrorScreen/ErrorScreen';
+import Error from './pages/Error/Error';
 
 
 class App extends React.Component {
@@ -17,12 +15,12 @@ class App extends React.Component {
       <Router>
         <NavBar/>
         <Switch>
-          <Route path="/" exact component={HomeScreen}/>
-          <Route component={ErrorScreen}/>
+          <Route path="/" exact component={Home}/>
+          <Route component={Error}/>
         </Switch>
       </Router>
     )
   }
 }
 
-export default connect(null, {fetchNearby})(App);
+export default App;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ErrorScreen from './ErrorScreen';
+import Error from './Error';
 
 describe('Error Screen', () => {
-  const screen = shallow(<ErrorScreen />);
+  const screen = shallow(<Error />);
 
   it('renders without crashing', () => {
     expect(screen).toMatchSnapshot();

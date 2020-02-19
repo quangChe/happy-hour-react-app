@@ -1,7 +1,7 @@
 import React from 'react';
 import colors from '../../styles/colors';
 import './NavBar.scss';
-import { connect } from 'react-redux';
+import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
 import Logo from '../Utils/Logo';
@@ -44,8 +44,4 @@ export class NavBar extends React.Component {
   }
 }
 
-const mapStateToProps = ({businesses: {nearbyBusinesses}}) => {
-  return {loading: nearbyBusinesses.loading};
-}
-
-export default connect(mapStateToProps)(NavBar);
+export default observer(NavBar);

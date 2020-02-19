@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { HomeScreen } from './HomeScreen';
+import { Home } from './Home';
 
-describe('Homescreen', () => {
+describe('Home', () => {
   const props = { 
     businesses: {
       nearbyBusinesses: {data: '', loading: ''}
     }
   };
-  const screen = shallow(<HomeScreen {...props}/>);
+  const screen = shallow(<Home {...props}/>);
 
   describe('when app is loading', () => {
     let loading;

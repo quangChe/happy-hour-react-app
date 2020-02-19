@@ -7,16 +7,14 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.1",
     "enzyme-to-json": "^3.3.5",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.1.8",
     "node-sass": "^4.12.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^7.0.3",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
-    "react-test-renderer": "^16.8.6",
-    "redux": "^4.0.1",
-    "redux-form": "^8.2.0",
-    "redux-thunk": "^2.3.0"
+    "react-test-renderer": "^16.12.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,5 +46,6 @@
       "!src/styles/**",
       "!src/store/reducers/index.js"
     ]
-  }
+  },
+  "devDependencies": {}
 }

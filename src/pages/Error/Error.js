@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ErrorPage = (props) => {
+const Error = (props) => {
   return (
     <div style={{
       display: 'flex', 
@@ -13,4 +13,4 @@ const ErrorPage = (props) => {
   )
 }
 
-export default ErrorPage;
+export default Error;

@@ -22,7 +22,7 @@ const Yelp = {
   },
   searchByTerm: async (searchTerm, location = {latitude: null, longitude: null}) => {
     try {
-      const search = searchTerm.split(" ").join("+");
+      const search = searchTerm.replace("  ", " ").split(" ").join("+");
       const queryString = (location.latitude && location.longitude) ?
         `term=happy+hour+${search}&longitude=${location.longitude}&latitude=${location.latitude}&limit=10`
         : `term=happy+hour+${search}&limit=10`;
