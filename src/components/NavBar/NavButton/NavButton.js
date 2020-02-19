@@ -6,7 +6,7 @@ export default class NavButton extends React.Component {
     open: this.props.open ? this.props.open : false,
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     if (nextProps.open !== this.state.open) {
       this.setState({open: nextProps.open})
     }
