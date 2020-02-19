@@ -1,14 +1,15 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
 import VenueCardList from '../../components/VenueCardList/VenueCardList';
 import LoadingSpinner from '../../components/Utils/LoadingSpinner';
 
+@inject(['businesses'])
 @observer
 class Home extends React.Component {
 
   componentDidMount() {
-    console.log(this.props);
+    
   }
 
   searchVenue = async (e) => {
@@ -16,8 +17,7 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-    // const { nearbyBusinesses } = this.props.businesses;
+    const { nearby } = this.props.businesses;
     const height = window.innerHeight;
     const randomNumber = Math.round(Math.random() * 1000000);
     
@@ -29,12 +29,11 @@ class Home extends React.Component {
     
     const completeView = (
       <div style={{height}}>
-        {/* <VenueCardList id={randomNumber} venues={nearbyBusinesses.data} venueClick={this.searchVenue}/> */}
+        <VenueCardList id={randomNumber} venues={nearby.data} venueClick={this.searchVenue}/>
       </div>
     );
 
-    return null;
-    // return nearbyBusinesses.loading ? loadingView : completeView;
+    return nearby.loading ? loadingView : completeView;
   }
 }
 

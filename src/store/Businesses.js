@@ -7,8 +7,10 @@ class Businesses {
     @observable currentlyViewing = {};
 
     @action async fetchNearby() {
+        this.nearby.loading = true;
         const response = await api.searchNearby();
         this.nearby.data = response;
+        this.nearby.loading = false;
         console.log(response);
     }
 
