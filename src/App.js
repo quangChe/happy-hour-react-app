@@ -5,11 +5,11 @@ import Home from './pages/Home/Home';
 import NavBar from './components/NavBar/NavBar';
 import Error from './pages/Error/Error';
 
-@inject(['businesses'])
+@inject(['store'])
 @observer
 class App extends React.Component {
   componentDidMount() {
-    this.props.businesses.fetchNearby();
+    this.props.store.businessStore.fetchNearby();
   }
 
   render() {

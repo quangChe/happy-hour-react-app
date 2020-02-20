@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 // import { StoreProvider } from './store';
-import businesses from './store/Businesses'
+import RootStore from './store'
 import { Provider } from 'mobx-react'
 
+const store = new RootStore();
+
 const HappyHourApp = (
-    <Provider businesses={businesses}>
+    <Provider store={store}>
         <App/>
     </Provider>
 );

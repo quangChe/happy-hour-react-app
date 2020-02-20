@@ -4,12 +4,12 @@ import { observer, inject } from 'mobx-react';
 import VenueCardList from '../../components/VenueCardList/VenueCardList';
 import LoadingSpinner from '../../components/Utils/LoadingSpinner';
 
-@inject(['businesses'])
+@inject(['store'])
 @observer
 class Home extends React.Component {
 
   componentDidMount() {
-    
+
   }
 
   searchVenue = async (e) => {
@@ -17,7 +17,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const { nearby } = this.props.businesses;
+    const { nearby } = this.props.store.businessStore;
     const height = window.innerHeight;
     const randomNumber = Math.round(Math.random() * 1000000);
     
