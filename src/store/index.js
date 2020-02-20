@@ -1,12 +1,26 @@
-import React, { createContext, useContext } from 'react';
-import Businesses from './Businesses';
+import BusinessStore from './BusinessStore';
+import { observable, action } from 'mobx';
 
-const StoreContext = createContext({});
+export default class RootStore {
+    constructor() {
+        this.setBusinessStore();
+    }
 
-export const StoreProvider = (props) => (
-    <StoreContext.Provider 
-        businesses={Businesses}>
-            {props.children}
-    </StoreContext.Provider>
-)
-export const useStore = () => useContext(StoreContext);
+    @observable 
+    businessStore;
+
+    @action
+    setBusinessStore = (businessStore) => {
+        this.businessStore = new BusinessStore(this);
+    }
+}
+
+// const StoreContext = createContext({});
+
+// export const StoreProvider = (props) => (
+//     <StoreContext.Provider 
+//         businesses={Businesses}>
+//             {props.children}
+//     </StoreContext.Provider>
+// )
+// export const useStore = () => useContext(StoreContext);
