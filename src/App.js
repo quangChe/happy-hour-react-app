@@ -9,13 +9,11 @@ import Error from './pages/Error/Error';
 @observer
 class App extends React.Component {
   componentDidMount() {
-    this.props.store.businessStore.fetchNearby();
+    this.props.store.apiStore.fetchNearby();
   }
 
   render() {
-    console.log(this.props);
     return (
-      // <Home/>
       <Router>
         <NavBar/>
         <Switch>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 
 import VenueCardList from '../../components/VenueCardList/VenueCardList';
@@ -12,12 +13,13 @@ class Home extends React.Component {
 
   }
 
-  searchVenue = async (e) => {
-    await this.props.fetchById(e);
+  searchVenue = (id) => {
+    const { nearby } = toJS(this.props.store.businessStore);
+    console.log(nearby.find(place => place.id === id));
   }
 
   render() {
-    const { nearby } = this.props.store.businessStore;
+    const { nearby, loading } = this.props.store.businessStore;
     const height = window.innerHeight;
     const randomNumber = Math.round(Math.random() * 1000000);
     
@@ -29,11 +31,11 @@ class Home extends React.Component {
     
     const completeView = (
       <div style={{height}}>
-        <VenueCardList id={randomNumber} venues={nearby.data} venueClick={this.searchVenue}/>
+        <VenueCardList id={randomNumber} venues={nearby} venueClick={this.searchVenue}/>
       </div>
     );
 
-    return nearby.loading ? loadingView : completeView;
+    return loading ? loadingView : completeView;
   }
 }
 
