@@ -1,16 +1,23 @@
-import BusinessStore from './BusinessStore';
 import { observable, action } from 'mobx';
+import ApiStore from './ApiStore';
+import BusinessStore from './BusinessStore';
 
 export default class RootStore {
     constructor() {
+        this.setApiStore();
         this.setBusinessStore();
     }
 
-    @observable 
-    businessStore;
+    @observable apiStore;
+    @observable businessStore;
 
     @action
-    setBusinessStore = (businessStore) => {
+    setApiStore = () => {
+        this.apiStore = new ApiStore(this);
+    }
+
+    @action
+    setBusinessStore = () => {
         this.businessStore = new BusinessStore(this);
     }
 }
