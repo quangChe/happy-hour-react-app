@@ -8,6 +8,7 @@ export default class BusinessStore {
 
     @observable loading;
     @observable nearby;
+    @observable currentlyViewing;
 
     @action setLoading = (bool) => {
         this.loading = bool;
@@ -15,5 +16,9 @@ export default class BusinessStore {
     
     @action setPlacesNearby = (places) => {
         this.nearby = places;
+    }
+
+    @action viewPlace = (place) => {
+        this.currentlyViewing = place;
     }
 }

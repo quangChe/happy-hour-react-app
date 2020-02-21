@@ -1,11 +1,10 @@
 import React from 'react';
-import { toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 
 import VenueCardList from '../../components/VenueCardList/VenueCardList';
 import LoadingSpinner from '../../components/Utils/LoadingSpinner';
 
-@inject(['store'])
+@inject('apiStore', 'businessStore')
 @observer
 class Home extends React.Component {
 
@@ -14,12 +13,11 @@ class Home extends React.Component {
   }
 
   searchVenue = (id) => {
-    const { nearby } = toJS(this.props.store.businessStore);
-    console.log(nearby.find(place => place.id === id));
+    this.props.apiStore.fetchById(id);
   }
 
   render() {
-    const { nearby, loading } = this.props.store.businessStore;
+    const { nearby, loading } = this.props.businessStore;
     const height = window.innerHeight;
     const randomNumber = Math.round(Math.random() * 1000000);
     

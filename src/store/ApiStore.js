@@ -16,6 +16,6 @@ export default class ApiStore {
 
     fetchById = flow(function*(id) {
         const response = yield api.searchId(id);
-        console.log(response)
+        this.root.businessStore.viewPlace(response);
     })
 }
