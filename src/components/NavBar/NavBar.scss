@@ -4,21 +4,43 @@
   position: absolute;
 
   .navbar {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
+    position: absolute;  
     z-index: 10;
     width: 100%;
     padding: 20px;
     background: rgba(0, 0, 0, 0);
     box-sizing: border-box;
-    height: 60px;
+    max-height: 177px;
+    height: 40vh;
     top: 30px;
-  
+    
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .searchbar {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      
+      .searchbox {
+        max-height: 50px;
+        width: 90%;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 10px 6px -6px rgba(51, 51, 51, 0.8);
+        animation: fadein 1.8s;
+      }
+    }
+
     @media only screen and (min-width: 400px) {
       padding: 20px 50px;
     }
   }
 }
 
-
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

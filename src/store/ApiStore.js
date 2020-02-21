@@ -18,4 +18,6 @@ export default class ApiStore {
         const response = yield api.searchId(id);
         this.root.businessStore.viewPlace(response);
     })
+
+    
 }
