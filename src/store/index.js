@@ -3,30 +3,35 @@ import { RouterStore } from 'mobx-react-router';
 import ApiStore from './ApiStore';
 import BusinessStore from './BusinessStore';
 
+import AppForms from '../forms'
+
 export default class RootStore {
     constructor() {
         this.setApiStore();
         this.setRouterStore();
         this.setBusinessStore();
+        this.setFormStore();
     }
 
     @observable apiStore;
     @observable routerStore;
     @observable businessStore;
+    @observable formStore;
 
-    @action
     setApiStore = () => {
         this.apiStore = new ApiStore(this);
     }
 
-    @action 
     setRouterStore = () => {
         this.routerStore = new RouterStore();
     }
 
-    @action
     setBusinessStore = () => {
         this.businessStore = new BusinessStore(this);
+    }
+
+    setFormStore = () => {
+        this.formStore = new AppForms();
     }
 }
 
