@@ -4,7 +4,11 @@ import validatorjs from 'validatorjs';
 
 export default class LoginForm extends Form {
 
-  plugins = () => ({ dvr: dvr(validatorjs) });
+  plugins() {
+    return (
+      { dvr: dvr(validatorjs) }
+    )
+  }
 
   setup() {
     return {
@@ -13,7 +17,7 @@ export default class LoginForm extends Form {
         label: 'Email',
         placeholder: 'Insert Email',
         rules: 'required|email|string|between:8,25',
-        value: 's.jobs@apple.com'
+        value: 'sample@email.com'
       }, {
         name: 'password',
         label: 'Password',
