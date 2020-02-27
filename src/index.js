@@ -5,7 +5,7 @@ import App from './App';
 import RootStore from './store';
 import { Provider } from 'mobx-react';
 import { syncHistoryWithStore } from 'mobx-react-router';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 const browserHistory = createBrowserHistory();
